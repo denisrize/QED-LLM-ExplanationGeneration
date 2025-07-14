@@ -89,6 +89,19 @@ Our fine-tuned models show particularly strong improvements in:
 | **Llama3-8B Fine-tuned** | **35.8%** (+39.8%) | **22.1%** (+30.0%) | **58.8%** (+13.3%) | 50 |
 | Base Models (Zero-shot) | 25.6% | 17.0% | ~52% | N/A |
 
+## 🤗 Pre-trained Models
+
+Our fine-tuned models are available on Hugging Face:
+
+### Ready-to-Use Models:
+- **[Llama3-8B-QED-FineTuned](https://huggingface.co/DenisRz/llama3_8b_instruct_qed)** 
+  - Base: meta-llama/Meta-Llama-3-8B-Instruct
+  - Performance: +10.2% All Mention F1, +39.8% relative improvement
+
+- **[Qwen2.5-7B-QED-FineTuned](https://huggingface.co/DenisRz/qwen2.5-7b-qed)**
+  - Base: Qwen/Qwen2.5-7B-Instruct  
+  - Performance: +10.7% All Mention F1, +41.8% relative improvement
+
 ---
 
 ## Project Structure
