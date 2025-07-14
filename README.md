@@ -1,6 +1,7 @@
 # QED Few-Shot Fine-Tuning and Evaluation
 
-This project provides scripts and configuration for few-shot fine-tuning and evaluation of language models on the QED (Question-Explanation-Data) task. It supports various instruction-tuned models and includes comprehensive evaluation with detailed span extraction and overlap analysis.
+This project provides scripts and configuration for few-shot fine-tuning and evaluation of language models on the QED (Question-Explanation-Data) task. Full dataset description can be found here - [QED Dataset](https://github.com/google-research-datasets/QED)
+The project supports various instruction-tuned models and includes comprehensive evaluation with detailed span extraction and overlap analysis.
 
 ---
 
@@ -22,11 +23,16 @@ This project provides scripts and configuration for few-shot fine-tuning and eva
 ## 🏆 Results and Performance
 
 ### Key Achievements
+Our few-shot fine-tuning approach demonstrates significant improvements over base models across all QED evaluation metrics:
 
-Our few-shot fine-tuning approach demonstrates significant improvements over base models across all QED evaluation metrics using only **50 carefully selected training examples**:
+**📊 Static vs Randomly Chosen Examples**
 
-**[📊 PLOT 1: Model Performance Comparison Overview]**
-*Suggested: Bar chart comparing base vs fine-tuned models across key metrics (All Mention F1, Pair F1, Answer Accuracy)*
+<img width="400" height="1475" alt="static_vs_random" src="https://github.com/user-attachments/assets/8beabe6d-f96b-4020-aefa-b5631d9878d8" />
+
+**📊 Model Performance Comparison Overview**
+Comparison of base vs fine-tuned models across key metrics (All Mention F1, Pair F1, Answer Accuracy) and Prompt Type (Number of Examples, Randomly chosen or Not)
+
+<img width="400" height="1180" alt="fine_tuned_vs_regular" src="https://github.com/user-attachments/assets/016a9330-47be-43a3-a320-0c56c301855b" />
 
 #### Llama3-8B-Instruct Fine-tuned Results
 - **All Mention F1**: 25.6% → **35.8%** (+10.2%, **+39.8% relative improvement**)
@@ -40,14 +46,9 @@ Our few-shot fine-tuning approach demonstrates significant improvements over bas
 - **Answer Accuracy**: 51.9% → **59.4%** (+7.5%, **+14.4% relative improvement**)  
 - **Question Mention F1**: 68.1% → **72.4%** (+4.3%, **+6.3% relative improvement**)
 
-**[📊 PLOT 2: Relative Improvement Comparison]**
-*Suggested: Horizontal bar chart showing percentage improvements for each metric, comparing Llama3 vs Qwen2.5*
+**📊 Model Performance Comparison Overview**
 
 ### Performance Across Different Evaluation Thresholds
-
-**[📊 PLOT 3: Performance vs Overlap Threshold]**
-*Suggested: Line graph showing how All Mention F1 and Pair F1 perform across overlap thresholds (0.5-0.9) for both models*
-
 Our evaluation reveals that fine-tuned models maintain superior performance even at stricter overlap thresholds:
 
 | Overlap Threshold | Llama3 Base F1 | Llama3 Fine-tuned F1 | Qwen Base F1 | Qwen Fine-tuned F1 |
@@ -56,26 +57,27 @@ Our evaluation reveals that fine-tuned models maintain superior performance even
 | 0.7 (Moderate)   | 23.1%          | **32.4%**           | 23.1%       | **33.1%**        |
 | 0.9 (Strict)     | 19.8%          | **27.6%**           | 19.8%       | **28.3%**        |
 
+**📊 Model Answers Length Distribution**
+Comparative analysis of actual versus predicted output distributions reveals significant differences between base and fine-tuned models:
+
+Sentence and questions reference length distributions for Qwen models:
+
+<img width="400" height="1181" alt="quen_q_dis" src="https://github.com/user-attachments/assets/88179a56-3b90-46d1-8c92-429d0a5cade4" />
+
+<img width="400" height="1181" alt="quen_s_dis" src="https://github.com/user-attachments/assets/9612cb1f-5c02-4f49-9edb-9c10ad882bf5" />
+
+Sentence reference length distributions for Llama models:
+
+<img width="400" height="1181" alt="llama_q_dis" src="https://github.com/user-attachments/assets/0644cf1c-4dc2-4976-87ad-4d39b155091e" />
+
+<img width="400" height="1181" alt="llama_s_dis" src="https://github.com/user-attachments/assets/0d598dd0-95e0-4f2c-b6ba-7e31a8b987bf" />
+
 ### Entity Recognition and Alignment Improvements
 
 Our fine-tuned models show particularly strong improvements in:
 - **Entity Identification**: **41.8% relative improvement** in All Mention F1 (Qwen2.5)
 - **Entity Relationship Mapping**: **32.9% relative improvement** in Pair Alignment F1 (Qwen2.5)
 - **Answer Extraction**: Consistent **13-14% relative improvements** in Answer Accuracy
-
-**[📊 PLOT 4: Metric Breakdown Analysis]**
-*Suggested: Radar/spider chart comparing base vs fine-tuned across all metrics*
-
-### Key Findings
-
-> 💡 **Efficiency**: Just **50 carefully selected training examples** yield **30-40% relative improvements** in entity relationship understanding!
-
-> 🎯 **Consistency**: Both models show significant gains across **all QED metrics**, demonstrating the robustness of our fine-tuning approach.
-
-> 🔬 **Precision**: Improvements are maintained even at **strict evaluation thresholds**, indicating genuine capability enhancement rather than just lenient matching.
-
-**[📊 PLOT 5: Training Efficiency Analysis]**
-*Suggested: Scatter plot showing performance gains vs number of training examples, highlighting the 50-example sweet spot*
 
 ---
 
@@ -86,9 +88,6 @@ Our fine-tuned models show particularly strong improvements in:
 | **Qwen2.5-7B Fine-tuned** | **36.3%** (+41.8%) | **22.6%** (+32.9%) | **59.4%** (+14.4%) | 50 |
 | **Llama3-8B Fine-tuned** | **35.8%** (+39.8%) | **22.1%** (+30.0%) | **58.8%** (+13.3%) | 50 |
 | Base Models (Zero-shot) | 25.6% | 17.0% | ~52% | N/A |
-
-**[📊 PLOT 6: Key Metrics Dashboard]**
-*Suggested: Clean dashboard visualization with key improvement percentages prominently displayed*
 
 ---
 
