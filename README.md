@@ -1,7 +1,7 @@
 # QED Few-Shot Fine-Tuning and Evaluation
 
 This project provides scripts and configuration for few-shot fine-tuning and evaluation of language models on the QED (Question-Explanation-Data) task. Full dataset description can be found here - [QED Dataset](https://github.com/google-research-datasets/QED)
-The project supports various instruction-tuned models and includes comprehensive evaluation with detailed span extraction and overlap analysis.
+The project supports various instruction-tuned models and includes a comprehensive evaluation with detailed span extraction and overlap analysis.
 
 ---
 
@@ -364,9 +364,6 @@ The system evaluates at multiple overlap thresholds:
 - **0.8**: Requires ≥80% F1 overlap
 - **0.9**: Requires ≥90% F1 overlap (strict)
 
-**[📊 PLOT 7: Detailed Evaluation Across Thresholds]**
-*Suggested: Heatmap showing performance matrix (models × metrics × thresholds)*
-
 ### Performance Analysis Results
 
 Our comprehensive evaluation demonstrates that fine-tuned models consistently outperform base models across all overlap thresholds, with particularly strong improvements in entity relationship tasks:
@@ -378,9 +375,6 @@ Our comprehensive evaluation demonstrates that fine-tuned models consistently ou
 | All Mention F1 | 0.9 | 19.8% | **28.3%** | **+43.0%** |
 | Pair Alignment F1 | 0.5 | 17.0% | **22.6%** | **+32.9%** |
 | Answer Accuracy | 0.5 | 51.9% | **59.4%** | **+14.4%** |
-
-**[📊 PLOT 8: Error Analysis Comparison]**
-*Suggested: Stacked bar chart showing types of errors (JSON parsing, span extraction, entity alignment) before vs after fine-tuning*
 
 ### Evaluation Modes
 
@@ -505,22 +499,6 @@ After running evaluation, check the results in:
 - **Exact Match Accuracy**: Percentage of perfect prediction matches
 - **Pair F1**: Entity alignment performance between questions and context
 - **All Mention F1**: Overall entity extraction performance
-
-**[📊 PLOT 9: Performance Progression During Training]**
-*Suggested: Line graph showing how key metrics improve during the fine-tuning process across epochs*
-
-### Performance Insights from Our Results
-
-The batch evaluation summary provides a comparison table showing how performance varies across different overlap thresholds, helping you understand model reliability and precision at different levels of matching strictness.
-
-**Key insights from our evaluation:**
-- **Robust Improvement**: Fine-tuned models show consistent gains across all metrics
-- **Threshold Independence**: Performance improvements are maintained even at strict evaluation thresholds
-- **Entity Excellence**: Particularly strong improvements in entity relationship understanding (40%+ relative gains)
-- **Efficiency**: Minimal training data (50 examples) achieves substantial improvements
-
-**[📊 PLOT 10: Model Comparison Summary]**
-*Suggested: Comprehensive dashboard comparing all aspects of base vs fine-tuned performance*
 
 ---
 
